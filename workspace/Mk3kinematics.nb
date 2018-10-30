@@ -1,0 +1,916 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     40399,        908]
+NotebookOptionsPosition[     40101,        894]
+NotebookOutlinePosition[     40444,        909]
+CellTagsIndexPosition[     40401,        906]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"separation", " ", "=", " ", "2.5"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rad", " ", "=", " ", "4.5"}], 
+  RowBox[{"(*", "mm", "*)"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"tr", " ", "=", " ", 
+    RowBox[{"1", "/", "16"}]}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"radius", " ", "of", " ", "torus"}], ",", " ", 
+    RowBox[{
+    "used", " ", "because", " ", "3", "D", " ", "art", " ", "is", " ", 
+     "easier", " ", "to", " ", "see", " ", "than", " ", "a", " ", "line"}]}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"toruses", "=", 
+    RowBox[{"ParametricPlot3D", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}], "+", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"rad", "+", 
+              RowBox[{"tr", " ", 
+               RowBox[{"Cos", "[", "v", "]"}]}]}], ")"}], 
+            RowBox[{"Cos", "[", "t", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"rad", "+", 
+              RowBox[{"tr", " ", 
+               RowBox[{"Cos", "[", "v", "]"}]}]}], ")"}], 
+            RowBox[{"Sin", "[", "t", "]"}]}], ",", " ", 
+           RowBox[{
+            RowBox[{"+", "tr"}], " ", 
+            RowBox[{"Sin", "[", "v", "]"}]}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "separation"}], "}"}], "+", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"rad", "+", 
+              RowBox[{"tr", " ", 
+               RowBox[{"Cos", "[", "v", "]"}]}]}], ")"}], 
+            RowBox[{"Cos", "[", "t", "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"rad", "+", 
+              RowBox[{"tr", " ", 
+               RowBox[{"Cos", "[", "v", "]"}]}]}], ")"}], 
+            RowBox[{"Sin", "[", "t", "]"}]}], ",", " ", 
+           RowBox[{
+            RowBox[{"+", "tr"}], " ", 
+            RowBox[{"Sin", "[", "v", "]"}]}]}], "}"}]}]}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"t", ",", "0", ",", 
+        RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"v", ",", "0", ",", 
+        RowBox[{"2", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Mesh", "\[Rule]", " ", "None"}], ",", 
+      RowBox[{"PlotRange", "\[Rule]", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "20"}], ",", "20"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "20"}], ",", "20"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "18"}], ",", "12"}], "}"}]}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"AxesLabel", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"\"\<\!\(\*
+StyleBox[\"x\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"y\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"z\",
+FontSlant->\"Italic\"]\)\>\""}], "}"}]}], ",", 
+      RowBox[{"LabelStyle", "\[Rule]", "18"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ImageSize", "\[Rule]", "500"}]}], "\[IndentingNewLine]", 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "p1", ",", "p2", ",", "r1", ",", "r2", ",", "r3", ",", "r4", ",", 
+       "empt", ",", 
+       RowBox[{"depthmin", "=", "6.5"}], ",", 
+       RowBox[{"range", "=", "2.5"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"separation", " ", "=", " ", "2.5"}], ",", 
+       "\[IndentingNewLine]", "needlelen"}], " ", "\[IndentingNewLine]", 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"needlelen", "=", 
+       RowBox[{"depthmin", "+", "10"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"p1", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"d1", " ", 
+          RowBox[{"Cos", "[", "a1", "]"}]}], ",", 
+         RowBox[{"d1", " ", 
+          RowBox[{"Sin", "[", "a1", "]"}]}], ",", "0"}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"p2", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"d2", " ", 
+          RowBox[{"Cos", "[", "a2", "]"}]}], ",", 
+         RowBox[{"d2", " ", 
+          RowBox[{"Sin", "[", "a2", "]"}]}], ",", "separation"}], "}"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"empt", " ", "=", " ", 
+       RowBox[{"Graphics3D", "[", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{"100", ",", "100", ",", "100"}], "}"}], "]"}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{"Show2DOFworkspace", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"r1", "=", " ", 
+          RowBox[{"ParametricPlot3D", "[", 
+           RowBox[{
+            RowBox[{"p1", "-", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"depthmin", "+", "depth"}], ")"}], " ", 
+              RowBox[{"Normalize", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"d2v", " ", 
+                   RowBox[{"Cos", "[", "a2v", "]"}]}], ",", 
+                  RowBox[{"d2v", " ", 
+                   RowBox[{"Sin", "[", "a2v", "]"}]}], ",", "separation"}], 
+                 "}"}], "-", "p1"}], "]"}]}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"a2v", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"d2v", ",", 
+              RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Mesh", "\[Rule]", " ", "None"}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "20"}], ",", "20"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"Red", ",", 
+               RowBox[{"Opacity", "[", "0.5", "]"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotRange", "\[Rule]", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AxesLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\!\(\*
+StyleBox[\"x\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"y\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"z\",
+FontSlant->\"Italic\"]\)\>\""}], "}"}]}], ",", 
+            RowBox[{"LabelStyle", "\[Rule]", "18"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ImageSize", "\[Rule]", "500"}]}], "\[IndentingNewLine]", 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"r2", "=", " ", 
+          RowBox[{"ParametricPlot3D", "[", 
+           RowBox[{
+            RowBox[{"p1", "-", 
+             RowBox[{"depthmin", "*", " ", 
+              RowBox[{"Normalize", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"d2v", " ", 
+                   RowBox[{"Cos", "[", "a2v", "]"}]}], ",", 
+                  RowBox[{"d2v", " ", 
+                   RowBox[{"Sin", "[", "a2v", "]"}]}], ",", "separation"}], 
+                 "}"}], "-", "p1"}], "]"}]}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"a2v", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"d2v", ",", 
+              RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Mesh", "\[Rule]", " ", "None"}], ",", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"Red", ",", 
+               RowBox[{"Opacity", "[", "0.5", "]"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotRange", "\[Rule]", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AxesLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\!\(\*
+StyleBox[\"x\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"y\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"z\",
+FontSlant->\"Italic\"]\)\>\""}], "}"}]}], ",", 
+            RowBox[{"LabelStyle", "\[Rule]", "18"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ImageSize", "\[Rule]", "500"}]}], "\[IndentingNewLine]", 
+           "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"r3", "=", " ", 
+          RowBox[{"ParametricPlot3D", "[", 
+           RowBox[{
+            RowBox[{"p1", "-", 
+             RowBox[{"d", " ", 
+              RowBox[{"Normalize", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"2.5", " ", 
+                   RowBox[{"Cos", "[", "a2v", "]"}]}], ",", " ", 
+                  RowBox[{"2.5", 
+                   RowBox[{"Sin", "[", "a2v", "]"}]}], ",", "separation"}], 
+                 "}"}], "-", "p1"}], "]"}]}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"a2v", ",", "0", ",", 
+              RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"d", ",", "depthmin", ",", 
+              RowBox[{"depthmin", "+", "depth"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"Mesh", "\[Rule]", " ", "None"}], ",", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"Blue", ",", 
+               RowBox[{"Opacity", "[", "0.5", "]"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"PlotRange", "\[Rule]", " ", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "20"}], "-", "tr"}], ",", 
+                 RowBox[{"20", "+", "tr"}]}], "}"}]}], "}"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"AxesLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"\"\<\!\(\*
+StyleBox[\"x\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"y\",
+FontSlant->\"Italic\"]\)\>\"", ",", "\"\<\!\(\*
+StyleBox[\"z\",
+FontSlant->\"Italic\"]\)\>\""}], "}"}]}], ",", 
+            RowBox[{"LabelStyle", "\[Rule]", "18"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"ImageSize", "\[Rule]", "500"}]}], "\[IndentingNewLine]", 
+           "]"}]}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{"Show4DOFworkspace", ",", "\[IndentingNewLine]", 
+        RowBox[{"r4", "=", " ", 
+         RowBox[{"RevolutionPlot3D", "[", 
+          RowBox[{
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", "d1", "]"}], "+", 
+                RowBox[{"depthmin", "*", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{"t", " ", 
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"range", "+", 
+                    RowBox[{"Abs", "[", "d1", "]"}]}], ")"}], "/", 
+                    "separation"}], "]"}]}], "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"-", "depthmin"}], "*", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{"t", " ", 
+                  RowBox[{"ArcTan", "[", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"range", "+", 
+                    RowBox[{"Abs", "[", "d1", "]"}]}], ")"}], "/", 
+                    "separation"}], "]"}]}], "]"}]}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", "d1", "]"}], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"depthmin", "+", "depth"}], ")"}], "*", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{"t", " ", 
+                   RowBox[{"ArcTan", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"range", "+", 
+                    RowBox[{"Abs", "[", "d1", "]"}]}], ")"}], "/", 
+                    "separation"}], "]"}]}], "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{"-", 
+                 RowBox[{"(", 
+                  RowBox[{"depthmin", "+", "depth"}], ")"}]}], "*", 
+                RowBox[{"Cos", "[", 
+                 RowBox[{"t", " ", 
+                  RowBox[{"ArcTan", "[", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"range", "+", 
+                    RowBox[{"Abs", "[", "d1", "]"}]}], ")"}], "/", 
+                    "separation"}], "]"}]}], "]"}]}]}], "}"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", "d1", "]"}], "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"depthmin", "+", 
+                   RowBox[{"t", " ", "depth"}]}], ")"}], "*", 
+                 RowBox[{"Sin", "[", 
+                  RowBox[{"ArcTan", "[", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"range", "+", 
+                    RowBox[{"Abs", "[", "d1", "]"}]}], ")"}], "/", 
+                    "separation"}], "]"}], "]"}]}]}], ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", "depthmin"}], "*", 
+                 RowBox[{"Cos", "[", " ", 
+                  RowBox[{"ArcTan", "[", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"range", "+", 
+                    RowBox[{"Abs", "[", "d1", "]"}]}], ")"}], "/", 
+                    "separation"}], "]"}], "]"}]}], "-", 
+                RowBox[{"t", " ", "depth", "*", 
+                 RowBox[{"Cos", "[", " ", 
+                  RowBox[{"ArcTan", "[", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"range", "+", 
+                    RowBox[{"Abs", "[", "d1", "]"}]}], ")"}], "/", 
+                    "separation"}], "]"}], "]"}]}]}]}], "}"}]}], 
+            "\[IndentingNewLine]", "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"t", ",", "0", ",", "1"}], "}"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", "Automatic"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"Directive", "[", 
+             RowBox[{"Opacity", "[", "0.5", "]"}], "]"}]}]}], "]"}]}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{"{", 
+        RowBox[{"toruses", ",", 
+         RowBox[{"If", "[", 
+          RowBox[{"Show2DOFworkspace", ",", 
+           RowBox[{"{", 
+            RowBox[{"r1", ",", "r2", ",", "r3"}], "}"}], ",", "empt"}], "]"}],
+          ",", 
+         RowBox[{"If", "[", 
+          RowBox[{"Show4DOFworkspace", ",", 
+           RowBox[{"{", "r4", "}"}], ",", "empt"}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Graphics3D", "[", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Tube", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Cos", "[", "a1", "]"}]}], ",", 
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Sin", "[", "a1", "]"}]}], ",", "0"}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Cos", "[", 
+                   RowBox[{"a1", "+", "\[Pi]"}], "]"}]}], ",", 
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Sin", "[", 
+                   RowBox[{"a1", "+", "\[Pi]"}], "]"}]}], ",", "0"}], "}"}]}],
+               "}"}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Sphere", "[", 
+             RowBox[{"p1", ",", 
+              RowBox[{"1", "/", "10"}]}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Tube", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Cos", "[", "a2", "]"}]}], ",", 
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Sin", "[", "a2", "]"}]}], ",", "separation"}], 
+                "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Cos", "[", 
+                   RowBox[{"a2", "+", "\[Pi]"}], "]"}]}], ",", 
+                 RowBox[{"rad", "*", 
+                  RowBox[{"Sin", "[", 
+                   RowBox[{"a2", "+", "\[Pi]"}], "]"}]}], ",", "separation"}],
+                 "}"}]}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Sphere", "[", 
+             RowBox[{"p2", ",", 
+              RowBox[{"1", "/", "10"}]}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"Opacity", "[", "0.5", "]"}], "}"}], ",", 
+            "\[IndentingNewLine]", "Black", ",", "\[IndentingNewLine]", 
+            RowBox[{"Tube", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"p1", "-", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"depthmin", "+", "depth", "-", "0.01"}], ")"}], 
+                 RowBox[{"Normalize", "[", 
+                  RowBox[{"(", 
+                   RowBox[{"p2", "-", "p1"}], ")"}], "]"}]}]}], ",", 
+               RowBox[{"p1", "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"needlelen", "+", "4.5", "-", 
+                   RowBox[{"(", 
+                    RowBox[{"depthmin", "+", "depth", "-", "0.01"}], ")"}]}], 
+                  ")"}], 
+                 RowBox[{"Normalize", "[", 
+                  RowBox[{"(", 
+                   RowBox[{"p2", "-", "p1"}], ")"}], "]"}]}]}]}], "}"}], 
+             "]"}]}], "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", 
+          "]"}]}], "}"}], "\[IndentingNewLine]", "]"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"a1", ",", "0"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"-", "\[Pi]"}], "/", "2"}], ",", 
+         RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], ",", "\"\<  \>\"", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"d1", ",", "0"}], "}"}], ",", 
+         RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}]}]}], "}"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"a2", ",", "0"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"-", "\[Pi]"}], "/", "2"}], ",", 
+         RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], ",", "\"\<  \>\"", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"d2", ",", "0"}], "}"}], ",", 
+         RowBox[{"-", "2.5"}], ",", "2.5"}], "}"}]}]}], "}"}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"depth", ",", "5"}], "}"}], ",", "0.01", ",", "10"}], "}"}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"Row", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{"Show2DOFworkspace", ",", 
+         RowBox[{"{", 
+          RowBox[{"True", ",", "False"}], "}"}]}], "}"}]}], ",", 
+      "\"\<   \>\"", ",", "\[IndentingNewLine]", 
+      RowBox[{"Control", "@", 
+       RowBox[{"{", 
+        RowBox[{"Show4DOFworkspace", ",", 
+         RowBox[{"{", 
+          RowBox[{"False", ",", "True"}], "}"}]}], "}"}]}]}], "}"}], "]"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.7269354767344437`*^9, 3.726935482762154*^9}, {
+   3.7269355927099037`*^9, 3.7269361182220163`*^9}, {3.7269361646964703`*^9, 
+   3.726936512976605*^9}, {3.726936583780951*^9, 3.726936675763249*^9}, {
+   3.726936900772779*^9, 3.726937023988451*^9}, {3.726937125523991*^9, 
+   3.726937381375927*^9}, {3.7269374215083*^9, 3.726937455359376*^9}, {
+   3.7269374954126596`*^9, 3.7269374983847218`*^9}, {3.726939901050136*^9, 
+   3.72693991177667*^9}, {3.726945984758226*^9, 3.726946016476746*^9}, {
+   3.726946088476842*^9, 3.72694608895544*^9}, {3.726946139849332*^9, 
+   3.7269461402528276`*^9}, 3.726947641992285*^9, {3.72696505493666*^9, 
+   3.726965192600013*^9}, {3.7269652462766848`*^9, 3.726965331861898*^9}, {
+   3.72696628968718*^9, 3.726966368060092*^9}, {3.726966402296029*^9, 
+   3.726966725676255*^9}, {3.727022647039935*^9, 3.727022648617518*^9}, {
+   3.72702268866512*^9, 3.727022751704452*^9}, {3.727022845851252*^9, 
+   3.7270228486042624`*^9}, {3.727022889954235*^9, 3.727022892862273*^9}, {
+   3.727022955907827*^9, 3.727022994675931*^9}, {3.727028649236303*^9, 
+   3.7270286902973027`*^9}, {3.727028741457303*^9, 3.727028751490303*^9}, {
+   3.727028792278303*^9, 3.7270288806393027`*^9}, {3.727028999953303*^9, 
+   3.7270290208143024`*^9}, {3.727029076287303*^9, 3.727029088268303*^9}, {
+   3.7271261080334*^9, 3.7271261874504004`*^9}, {3.7271263892164*^9, 
+   3.7271263948283997`*^9}, {3.7271265871164*^9, 3.7271266238854*^9}, {
+   3.7271267672794*^9, 3.7271268676924*^9}, {3.7271269451844*^9, 
+   3.7271269987514*^9}, {3.7271270557264*^9, 3.7271272488613997`*^9}, {
+   3.7271272810864*^9, 3.7271273089764*^9}, {3.7271273830094*^9, 
+   3.7271274036334*^9}, {3.7271274652483997`*^9, 3.7271274964964*^9}, {
+   3.7271275919054003`*^9, 3.7271276321924*^9}, {3.7271276855544*^9, 
+   3.7271277439524*^9}, {3.7271277785274*^9, 3.7271278773234*^9}, {
+   3.7271279125123997`*^9, 3.7271279600014*^9}, {3.7271281109924*^9, 
+   3.7271281491854*^9}, {3.7271281961144*^9, 3.7271282771443996`*^9}, {
+   3.7271283114574003`*^9, 3.7271283161454*^9}, {3.7271283507854*^9, 
+   3.7271283874393997`*^9}, {3.7271284744364*^9, 3.7271285337284*^9}, {
+   3.7271285994614*^9, 3.7271286132334003`*^9}, {3.7271292085744*^9, 
+   3.7271292300643997`*^9}, {3.7271295797774*^9, 3.7271295845754004`*^9}, {
+   3.7271296780014*^9, 3.7271297125934*^9}, {3.7271297868984003`*^9, 
+   3.7271298113594*^9}, {3.7271302092324*^9, 3.7271302095184*^9}, {
+   3.7271302434393997`*^9, 3.7271302436303997`*^9}, {3.7271306569944*^9, 
+   3.7271306924314003`*^9}, {3.7271307231364*^9, 3.7271307838104*^9}, {
+   3.7271309811554003`*^9, 3.7271310153004*^9}, 3.7271312034284*^9, {
+   3.7271312654444*^9, 3.7271312802434*^9}, {3.7271313231574*^9, 
+   3.7271313329824*^9}, {3.7271314201464*^9, 3.7271314256844*^9}, {
+   3.7271315010434*^9, 3.7271315155224*^9}, {3.7271315520684*^9, 
+   3.7271315783394003`*^9}, {3.7271316249024*^9, 3.7271316306584*^9}, {
+   3.7271316660844*^9, 3.7271317102274*^9}, {3.7271317722914*^9, 
+   3.7271317772813997`*^9}, {3.7271319037784*^9, 3.7271319070434*^9}, {
+   3.7271319675394*^9, 3.7271319833784*^9}, {3.7271320445864*^9, 
+   3.7271320700654*^9}, {3.7271322861514*^9, 3.7271322997004004`*^9}, {
+   3.7271323556084003`*^9, 3.7271323772284*^9}, {3.7271324421514*^9, 
+   3.7271324514574003`*^9}, {3.7271324828064003`*^9, 
+   3.7271324941233997`*^9}, {3.7271331508403997`*^9, 3.7271331689774*^9}, {
+   3.7271332624834003`*^9, 3.7271333009614*^9}, {3.7271333463403997`*^9, 
+   3.7271333714133997`*^9}, {3.7271334295274*^9, 3.7271335256064*^9}, {
+   3.7271335889014*^9, 3.7271335945304003`*^9}, {3.7271336731884003`*^9, 
+   3.7271336773354*^9}, {3.7271337154934*^9, 3.7271337201814003`*^9}, 
+   3.7271338473993998`*^9, 3.7271338780044003`*^9, {3.7271339447904*^9, 
+   3.7271339590274*^9}, {3.7271340279904003`*^9, 3.7271340536524*^9}, {
+   3.7271340939254*^9, 3.7271340954924*^9}, {3.7271343046134*^9, 
+   3.7271343409653997`*^9}, {3.7271347355604*^9, 3.7271348281944*^9}, {
+   3.7271348783613997`*^9, 3.7271349027874002`*^9}, {3.7271349703624*^9, 
+   3.7271349827844*^9}, {3.7271766869925127`*^9, 3.727176708748629*^9}, {
+   3.727176786328845*^9, 3.727176869194557*^9}, {3.7271771046026*^9, 
+   3.7271771238756*^9}, {3.7271784522606*^9, 3.7271784637206*^9}, {
+   3.7271874162279997`*^9, 3.727187614302*^9}, 3.7271879175480003`*^9, {
+   3.7271879602209997`*^9, 3.7271880076429996`*^9}, {3.72719167340418*^9, 
+   3.7271916890573797`*^9}, {3.7271917314849987`*^9, 
+   3.7271917324620724`*^9}, {3.7271918172433643`*^9, 
+   3.7271918390530844`*^9}, {3.72719195371393*^9, 3.7271919943351727`*^9}, {
+   3.7271922329297915`*^9, 3.727192248454896*^9}, 3.7271924599620953`*^9, 
+   3.727192559053348*^9, {3.7271930009143476`*^9, 3.727193114520348*^9}, {
+   3.727193161545348*^9, 3.727193172909348*^9}, {3.727193333005348*^9, 
+   3.727193363662348*^9}, {3.7271934633413477`*^9, 3.727193510732348*^9}, {
+   3.727193586937303*^9, 3.727193598485148*^9}, {3.7271936330896873`*^9, 
+   3.727193663790617*^9}, {3.727193697277268*^9, 3.7271937200409913`*^9}, {
+   3.7271937941185827`*^9, 3.7271937999400005`*^9}, {3.727193863233348*^9, 
+   3.7271938830573483`*^9}, {3.727193959982348*^9, 3.727193975693348*^9}, {
+   3.727194027713348*^9, 3.727194082781348*^9}, {3.727194259887348*^9, 
+   3.7271942632533484`*^9}, {3.727194561106348*^9, 3.727194578526348*^9}, 
+   3.7271947573603477`*^9, {3.727194819855348*^9, 3.727194820746348*^9}, {
+   3.727194941061348*^9, 3.727194946081348*^9}, {3.727195111471348*^9, 
+   3.7271951674853477`*^9}, {3.727195227295348*^9, 3.727195244031348*^9}, {
+   3.727195296511348*^9, 3.727195304719348*^9}, {3.727195378719348*^9, 
+   3.727195386513348*^9}, {3.727195520928348*^9, 3.727195525105348*^9}, {
+   3.727195570113348*^9, 3.727195583824348*^9}, {3.727195683711348*^9, 
+   3.727195693262348*^9}, {3.7271958368333483`*^9, 3.7271958882233477`*^9}, {
+   3.727196177204348*^9, 3.727196214608348*^9}, {3.727196250560348*^9, 
+   3.727196259920348*^9}, {3.727196291052348*^9, 3.727196303646348*^9}, 
+   3.727197711309348*^9, {3.727199150042348*^9, 3.7271991662163477`*^9}},
+ ExpressionUUID -> "24f14359-74cc-4d80-8fe7-321b586072cc"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+    0, $CellContext`d1$$ = 2.5, $CellContext`d2$$ = 0, $CellContext`depth$$ = 
+    10., $CellContext`Show2DOFworkspace$$ = 
+    True, $CellContext`Show4DOFworkspace$$ = True, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a1$$], 0}, Rational[-1, 2] Pi, Rational[1, 2] Pi}, {{
+      
+       Hold[$CellContext`d1$$], 0}, -2.5, 2.5}, {
+      Hold[
+       Row[{
+         Manipulate`Place[1], "  ", 
+         Manipulate`Place[2]}]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`a2$$], 0}, Rational[-1, 2] Pi, Rational[1, 2] Pi}, {{
+      
+       Hold[$CellContext`d2$$], 0}, -2.5, 2.5}, {
+      Hold[
+       Row[{
+         Manipulate`Place[3], "  ", 
+         Manipulate`Place[4]}]], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`depth$$], 5}, 0.01, 10}, {
+      Hold[$CellContext`Show2DOFworkspace$$], {True, False}}, {
+      Hold[$CellContext`Show4DOFworkspace$$], {False, True}}, {
+      Hold[
+       Row[{
+         Manipulate`Place[5], "   ", 
+         Manipulate`Place[6]}]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = {500., {179., 185.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`a1$2507$$ = 0, $CellContext`d1$2508$$ = 
+    0, $CellContext`a2$2509$$ = 0, $CellContext`d2$2510$$ = 
+    0, $CellContext`depth$2511$$ = 0, $CellContext`Show2DOFworkspace$2512$$ = 
+    False, $CellContext`Show4DOFworkspace$2513$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`a1$$ = 0, $CellContext`a2$$ = 
+        0, $CellContext`d1$$ = 0, $CellContext`d2$$ = 0, $CellContext`depth$$ = 
+        5, $CellContext`Show2DOFworkspace$$ = 
+        True, $CellContext`Show4DOFworkspace$$ = False}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`a1$$, $CellContext`a1$2507$$, 0], 
+        Hold[$CellContext`d1$$, $CellContext`d1$2508$$, 0], 
+        Hold[$CellContext`a2$$, $CellContext`a2$2509$$, 0], 
+        Hold[$CellContext`d2$$, $CellContext`d2$2510$$, 0], 
+        Hold[$CellContext`depth$$, $CellContext`depth$2511$$, 0], 
+        Hold[$CellContext`Show2DOFworkspace$$, \
+$CellContext`Show2DOFworkspace$2512$$, False], 
+        Hold[$CellContext`Show4DOFworkspace$$, \
+$CellContext`Show4DOFworkspace$2513$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`p1$, $CellContext`p2$, $CellContext`r1$, \
+$CellContext`r2$, $CellContext`r3$, $CellContext`r4$, $CellContext`empt$, \
+$CellContext`depthmin$ = 6.5, $CellContext`range$ = 
+         2.5, $CellContext`separation$ = 
+         2.5, $CellContext`needlelen$}, $CellContext`needlelen$ = \
+$CellContext`depthmin$ + 
+          10; $CellContext`p1$ = {$CellContext`d1$$ 
+           Cos[$CellContext`a1$$], $CellContext`d1$$ Sin[$CellContext`a1$$], 
+           0}; $CellContext`p2$ = {$CellContext`d2$$ 
+           Cos[$CellContext`a2$$], $CellContext`d2$$ 
+           Sin[$CellContext`a2$$], $CellContext`separation$}; \
+$CellContext`empt$ = Graphics3D[
+           Point[{100, 100, 100}]]; 
+        If[$CellContext`Show2DOFworkspace$$, $CellContext`r1$ = 
+           ParametricPlot3D[$CellContext`p1$ - ($CellContext`depthmin$ + \
+$CellContext`depth$$) 
+             Normalize[{$CellContext`d2v 
+                 Cos[$CellContext`a2v], $CellContext`d2v 
+                 Sin[$CellContext`a2v], $CellContext`separation$} - \
+$CellContext`p1$], {$CellContext`a2v, 0, Pi}, {$CellContext`d2v, -2.5, 2.5}, 
+             Mesh -> None, PlotRange -> {{-10, 10}, {-10, 10}, {-20, 20}}, 
+             PlotStyle -> Directive[Red, 
+               Opacity[0.5]], 
+             PlotRange -> {{-20 - $CellContext`tr, 
+                20 + $CellContext`tr}, {-20 - $CellContext`tr, 
+                20 + $CellContext`tr}, {-20 - $CellContext`tr, 
+                20 + $CellContext`tr}}, 
+             AxesLabel -> {
+              "\!\(\*\nStyleBox[\"x\",\nFontSlant->\"Italic\"]\)", 
+               "\!\(\*\nStyleBox[\"y\",\nFontSlant->\"Italic\"]\)", 
+               "\!\(\*\nStyleBox[\"z\",\nFontSlant->\"Italic\"]\)"}, 
+             LabelStyle -> 18, ImageSize -> 500]; $CellContext`r2$ = 
+           ParametricPlot3D[$CellContext`p1$ - $CellContext`depthmin$ 
+             Normalize[{$CellContext`d2v 
+                 Cos[$CellContext`a2v], $CellContext`d2v 
+                 Sin[$CellContext`a2v], $CellContext`separation$} - \
+$CellContext`p1$], {$CellContext`a2v, 0, Pi}, {$CellContext`d2v, -2.5, 2.5}, 
+             Mesh -> None, PlotStyle -> Directive[Red, 
+               Opacity[0.5]], 
+             PlotRange -> {{-20 - $CellContext`tr, 
+                20 + $CellContext`tr}, {-20 - $CellContext`tr, 
+                20 + $CellContext`tr}, {-20 - $CellContext`tr, 
+                20 + $CellContext`tr}}, 
+             AxesLabel -> {
+              "\!\(\*\nStyleBox[\"x\",\nFontSlant->\"Italic\"]\)", 
+               "\!\(\*\nStyleBox[\"y\",\nFontSlant->\"Italic\"]\)", 
+               "\!\(\*\nStyleBox[\"z\",\nFontSlant->\"Italic\"]\)"}, 
+             LabelStyle -> 18, ImageSize -> 500]; $CellContext`r3$ = 
+           ParametricPlot3D[$CellContext`p1$ - $CellContext`d 
+             Normalize[{
+                2.5 Cos[$CellContext`a2v], 2.5 
+                 Sin[$CellContext`a2v], $CellContext`separation$} - \
+$CellContext`p1$], {$CellContext`a2v, 0, 2 
+              Pi}, {$CellContext`d, $CellContext`depthmin$, \
+$CellContext`depthmin$ + $CellContext`depth$$}, Mesh -> None, PlotStyle -> 
+             Directive[Blue, 
+               Opacity[0.5]], 
+             PlotRange -> {{-20 - $CellContext`tr, 
+                20 + $CellContext`tr}, {-20 - $CellContext`tr, 
+                20 + $CellContext`tr}, {-20 - $CellContext`tr, 
+                20 + $CellContext`tr}}, 
+             AxesLabel -> {
+              "\!\(\*\nStyleBox[\"x\",\nFontSlant->\"Italic\"]\)", 
+               "\!\(\*\nStyleBox[\"y\",\nFontSlant->\"Italic\"]\)", 
+               "\!\(\*\nStyleBox[\"z\",\nFontSlant->\"Italic\"]\)"}, 
+             LabelStyle -> 18, ImageSize -> 500]]; 
+        If[$CellContext`Show4DOFworkspace$$, $CellContext`r4$ = 
+          RevolutionPlot3D[{{
+             Abs[$CellContext`d1$$] + $CellContext`depthmin$ 
+               Sin[$CellContext`t 
+                 ArcTan[($CellContext`range$ + 
+                    Abs[$CellContext`d1$$])/$CellContext`separation$]], \
+(-$CellContext`depthmin$) 
+              Cos[$CellContext`t 
+                ArcTan[($CellContext`range$ + 
+                   Abs[$CellContext`d1$$])/$CellContext`separation$]]}, {
+             Abs[$CellContext`d1$$] + ($CellContext`depthmin$ + \
+$CellContext`depth$$) 
+               Sin[$CellContext`t 
+                 ArcTan[($CellContext`range$ + 
+                    Abs[$CellContext`d1$$])/$CellContext`separation$]], \
+(-($CellContext`depthmin$ + $CellContext`depth$$)) 
+              Cos[$CellContext`t 
+                ArcTan[($CellContext`range$ + 
+                   Abs[$CellContext`d1$$])/$CellContext`separation$]]}, {
+             Abs[$CellContext`d1$$] + ($CellContext`depthmin$ + \
+$CellContext`t $CellContext`depth$$) Sin[
+                 
+                 ArcTan[($CellContext`range$ + 
+                   Abs[$CellContext`d1$$])/$CellContext`separation$]], \
+(-$CellContext`depthmin$) Cos[
+                 
+                 ArcTan[($CellContext`range$ + 
+                   Abs[$CellContext`d1$$])/$CellContext`separation$]] - \
+$CellContext`t $CellContext`depth$$ Cos[
+                
+                ArcTan[($CellContext`range$ + 
+                  Abs[$CellContext`d1$$])/$CellContext`separation$]]}}, \
+{$CellContext`t, 0, 1}, PlotRange -> Automatic, PlotStyle -> Directive[
+              Opacity[0.5]]]]; Show[{$CellContext`toruses, 
+           
+           If[$CellContext`Show2DOFworkspace$$, {$CellContext`r1$, \
+$CellContext`r2$, $CellContext`r3$}, $CellContext`empt$], 
+           
+           If[$CellContext`Show4DOFworkspace$$, {$CellContext`r4$}, \
+$CellContext`empt$], 
+           Graphics3D[{
+             
+             Tube[{{$CellContext`rad Cos[$CellContext`a1$$], $CellContext`rad 
+                Sin[$CellContext`a1$$], 0}, {$CellContext`rad 
+                Cos[$CellContext`a1$$ + Pi], $CellContext`rad 
+                Sin[$CellContext`a1$$ + Pi], 0}}], 
+             Sphere[$CellContext`p1$, 1/10], 
+             
+             Tube[{{$CellContext`rad Cos[$CellContext`a2$$], $CellContext`rad 
+                Sin[$CellContext`a2$$], $CellContext`separation$}, \
+{$CellContext`rad Cos[$CellContext`a2$$ + Pi], $CellContext`rad 
+                Sin[$CellContext`a2$$ + Pi], $CellContext`separation$}}], 
+             Sphere[$CellContext`p2$, 1/10], {
+              Opacity[0.5]}, Black, 
+             
+             Tube[{$CellContext`p1$ - ($CellContext`depthmin$ + \
+$CellContext`depth$$ - 0.01) 
+               Normalize[$CellContext`p2$ - $CellContext`p1$], \
+$CellContext`p1$ + ($CellContext`needlelen$ + 
+                 4.5 - ($CellContext`depthmin$ + $CellContext`depth$$ - 0.01))
+                  Normalize[$CellContext`p2$ - $CellContext`p1$]}]}]}]], 
+      "Specifications" :> {{{$CellContext`a1$$, 0}, Rational[-1, 2] Pi, 
+         Rational[1, 2] Pi, ControlPlacement -> 
+         1}, {{$CellContext`d1$$, 0}, -2.5, 2.5, ControlPlacement -> 2}, 
+        Row[{
+          Manipulate`Place[1], "  ", 
+          Manipulate`Place[2]}], {{$CellContext`a2$$, 0}, Rational[-1, 2] Pi, 
+         Rational[1, 2] Pi, ControlPlacement -> 
+         3}, {{$CellContext`d2$$, 0}, -2.5, 2.5, ControlPlacement -> 4}, 
+        Row[{
+          Manipulate`Place[3], "  ", 
+          Manipulate`Place[4]}], {{$CellContext`depth$$, 5}, 0.01, 
+         10}, {$CellContext`Show2DOFworkspace$$, {True, False}, 
+         ControlPlacement -> 5}, {$CellContext`Show4DOFworkspace$$, {
+         False, True}, ControlPlacement -> 6}, 
+        Row[{
+          Manipulate`Place[5], "   ", 
+          Manipulate`Place[6]}]}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{551., {275., 282.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Input",
+ CellChangeTimes->{3.7272078309853477`*^9}]
+},
+WindowSize->{1920, 980},
+WindowMargins->{{-9, Automatic}, {Automatic, -9}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 28624, 657, 1342, "Input"],
+Cell[29185, 679, 10912, 213, 574, InheritFromParent]
+}
+]
+*)
+
